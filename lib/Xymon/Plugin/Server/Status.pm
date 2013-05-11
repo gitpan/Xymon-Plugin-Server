@@ -159,7 +159,7 @@ sub _create_graph_html {
 
     my $type = "4.3";
 
-    my ($major, $minor) = Xymon::Plugin::Server->version;
+    my ($major, $minor) = @{Xymon::Plugin::Server->version};
     $type = "4.2" if ($major == 4 && $minor == 2);
 
     my $host = $self->{_host};
@@ -182,7 +182,7 @@ sub _create_graph_html {
 _EOS
     }
     else {
-	my $cgi_url = $ENV{XYMONSERVERCGIURL} || "/xymon2-cgi";
+	my $cgi_url = $ENV{XYMONSERVERCGIURL} || "/xymon-cgi";
 
 	my $html = << "_EOS";
 <p>
